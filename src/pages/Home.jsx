@@ -6,7 +6,7 @@ export default function Home() {
       <div className='white-overlay'></div>
 
       <div className='container position-relative z-2'>
-        <h1 className='display-1 fw-bold'>
+        <h1 className='display-1 fw-bold header'>
           Vi firar examen av
           <br />
           Studenterna 2025
@@ -20,7 +20,7 @@ export default function Home() {
         </div>
 
         <div
-          className='position-absolute text-center p-4 shadow bg-primary'
+          className='position-relative text-center p-4 shadow bg-primary mt-4 mt-md-0 mx-auto mx-md-0'
           style={{
             right: '2rem',
             maxWidth: '400px',

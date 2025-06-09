@@ -1,5 +1,6 @@
 .header {
   color: var(--haavard-dark);
+  font-size: var(--haavard-header);
 }
 
 .navbar-overlay {

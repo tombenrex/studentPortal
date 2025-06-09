@@ -3,6 +3,7 @@
   --haavard-red: #b71c1c;
   --haavard-gold: #ffcc00;
   --haavard-grey: #f8f9fa;
+  --haavard-header: clamp(1rem, 10vw, 2rem);
 }
 
 body {

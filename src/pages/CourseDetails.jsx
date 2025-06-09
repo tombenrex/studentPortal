@@ -8,16 +8,22 @@ export default function CourseDetails() {
   if (!course) {
     return (
       <div className='container mt-4'>
-        <h2>Course not found</h2>
-        <p>No course exists with ID: {id}</p>
+        <div className='alert alert-danger'>
+          <h4>Kurs hittades inte</h4>
+          <p>Ingen kurs med ID: {id} kunde hittas.</p>
+        </div>
       </div>
     )
   }
 
   return (
-    <div className='container mt-4'>
-      <h1>{course.title}</h1>
-      <p>{course.description}</p>
+    <div className='container mt-5'>
+      <div className='card'>
+        <div className='card-body'>
+          <h2 className='card-title'>{course.title}</h2>
+          <p className='card-text'>{course.description}</p>
+        </div>
+      </div>
     </div>
   )
 }
