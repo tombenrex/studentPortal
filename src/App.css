@@ -1,3 +1,7 @@
+.header {
+  color: var(--haavard-dark);
+}
+
 .navbar-overlay {
   position: absolute;
   top: 0;
@@ -7,15 +11,22 @@
   z-index: 10;
 }
 
-.hero {
+.section-hero {
   position: relative;
   height: 100vh;
-  background-image: url('/images/hero.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
+}
+
+.section-hero.hero {
+  background-image: url('../public/images/hero.png');
+}
+
+.section-hero.courses {
+  background-image: url('../public/images/courses-hero.jpg');
 }
 
 .white-overlay {
@@ -34,7 +45,7 @@
 }
 
 .navbar-logo {
-  height: 200px;
+  height: 50px;
 }
 
 .menu-overlay {
@@ -46,4 +57,15 @@
 .menu-overlay.open {
   transform: translateY(0);
   opacity: 1;
+}
+
+a.menu-link {
+  transition: color 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+  color: var(--haavard-dark);
+}
+
+.menu-link:hover {
+  color: var(--haavard-gold);
+  transform: translateX(5px);
 }

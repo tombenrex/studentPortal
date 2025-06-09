@@ -1,3 +1,19 @@
+:root {
+  --haavard-dark: #000;
+  --haavard-red: #b71c1c;
+  --haavard-gold: #ffcc00;
+  --haavard-grey: #f8f9fa;
+}
+
 body {
   font-family: 'Merriweather', serif;
+  color: #000;
+}
+
+.bg-primary {
+  background-color: #ffffff92 !important;
+}
+
+.bg-secondary {
+  background-color: #7f7f7f !important;
 }

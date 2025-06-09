@@ -1,19 +1,19 @@
 const courses = [
   {
     id: 1,
-    title: 'Introduction to Programming',
-    description: 'Learn the basics of programming using JavaScript.',
+    title: 'Introduktion till programmering',
+    description: 'Lär dig grunderna i programmering med JavaScript.',
   },
   {
     id: 2,
-    title: 'Frontend Development',
-    description: 'Build beautiful interfaces with HTML, CSS, and React.',
+    title: 'Frontend-utveckling',
+    description: 'Bygg snygga gränssnitt med HTML, CSS och React.',
   },
   {
     id: 3,
-    title: 'Backend Fundamentals',
-    description: 'Understand server-side logic using Node.js and Express.',
-  }
+    title: 'Backend-grunder',
+    description: 'Förstå serverlogik med Node.js och Express.',
+  },
 ]
 
 export default courses

@@ -2,28 +2,36 @@ import { Link } from 'react-router-dom'
 
 export default function Home() {
   return (
-    <header className='hero'>
+    <header className='section-hero hero'>
       <div className='white-overlay'></div>
 
-      <div className='container position-relative text-white z-2'>
+      <div className='container position-relative z-2'>
         <h1 className='display-1 fw-bold'>
-          Celebrating the
+          Vi firar examen av
           <br />
-          Class of 2025
+          Studenterna 2025
         </h1>
 
         <div className='mt-4'>
-          <Link to='/ceremonies' className='btn btn-danger btn-lg me-3'>
+          <Link to='/courses' className='btn btn-danger btn-lg me-3'>
             <i className='bi bi-arrow-right-circle me-2'></i>
-            Revisit the ceremonies
+            Se våra program
           </Link>
         </div>
 
-        <div className='mt-5'>
-          <h4>Håvard awarded 9,1337 degrees</h4>
-          <Link to='/news' className='btn btn-outline-light mt-2'>
+        <div
+          className='position-absolute text-center p-4 shadow bg-primary'
+          style={{
+            right: '2rem',
+            maxWidth: '400px',
+            zIndex: 3,
+            borderRadius: '0.5rem',
+          }}
+        >
+          <h4>Håvard utses vara den populäraste skolan</h4>
+          <Link to='/news' className='btn btn-outline-dark mt-2'>
             <i className='bi bi-arrow-right me-2'></i>
-            Read more about the Class of 2025
+            Läs mer i nyheterna
           </Link>
         </div>
       </div>
