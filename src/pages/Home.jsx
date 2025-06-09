@@ -2,45 +2,31 @@ import { Link } from 'react-router-dom'
 
 export default function Home() {
   return (
-    <div>
-      {/* Hero Section */}
-      <section className='bg-primary text-white text-center py-5'>
-        <div className='container'>
-          <h1 className='display-4'>Welcome to LearnHub</h1>
-          <p className='lead'>Empowering students with modern education tools</p>
-          <Link to='/register' className='btn btn-light btn-lg mt-3'>
-            Get Started
+    <header className='hero'>
+      <div className='white-overlay'></div>
+
+      <div className='container position-relative text-white z-2'>
+        <h1 className='display-1 fw-bold'>
+          Celebrating the
+          <br />
+          Class of 2025
+        </h1>
+
+        <div className='mt-4'>
+          <Link to='/ceremonies' className='btn btn-danger btn-lg me-3'>
+            <i className='bi bi-arrow-right-circle me-2'></i>
+            Revisit the ceremonies
           </Link>
         </div>
-      </section>
 
-      {/* Courses Preview */}
-      <section className='container py-5'>
-        <h2 className='mb-4 text-center'>Explore Our Courses</h2>
-        <p className='text-center'>
-          Choose from a variety of programming and tech courses designed for beginners and advanced learners.
-        </p>
-        <div className='text-center'>
-          <Link to='/courses' className='btn btn-outline-primary mt-3'>
-            View Courses
+        <div className='mt-5'>
+          <h4>Håvard awarded 9,1337 degrees</h4>
+          <Link to='/news' className='btn btn-outline-light mt-2'>
+            <i className='bi bi-arrow-right me-2'></i>
+            Read more about the Class of 2025
           </Link>
         </div>
-      </section>
-
-      {/* News Preview */}
-      <section className='bg-light py-5'>
-        <div className='container'>
-          <h2 className='mb-4 text-center'>Latest News</h2>
-          <p className='text-center'>
-            Stay updated with news, events, and announcements from our community.
-          </p>
-          <div className='text-center'>
-            <Link to='/news' className='btn btn-outline-secondary mt-3'>
-              Read News
-            </Link>
-          </div>
-        </div>
-      </section>
-    </div>
+      </div>
+    </header>
   )
 }

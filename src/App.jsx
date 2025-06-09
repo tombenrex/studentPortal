@@ -1,29 +1,23 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-
-// 1. Importera alla dina pages
-import Home from './pages/Home'
-import Courses from './pages/Courses'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Navbar from './components/Navbar'
 import CourseDetails from './pages/CourseDetails'
+import Courses from './pages/Courses'
+import Home from './pages/Home'
 import News from './pages/News'
 import Register from './pages/Register'
-
-// 2. (Valfritt) Navbar-komponent
-import Navbar from './components/Navbar'
+import './App.css'
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar /> {/* visas alltid */}
+      <Navbar />
       <Routes>
-        {/* Alla routes pekar på dina pages */}
         <Route path='/' element={<Home />} />
         <Route path='/courses' element={<Courses />} />
         <Route path='/courses/:id' element={<CourseDetails />} />
         <Route path='/news' element={<News />} />
         <Route path='/register' element={<Register />} />
-
-        {/* Fallback-sida */}
-        <Route path='*' element={<h1>404 - Page Not Found</h1>} />
+        <Route path='*' element={<h1 className='text-center mt-5'>404 - Page Not Found</h1>} />
       </Routes>
     </BrowserRouter>
   )
