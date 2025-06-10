@@ -6,7 +6,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className='navbar navbar-expand-lg navbar-light navbar-overlay py-4'>
+      <nav className='navbar navbar-expand-lg navbar-light navbar-overlay py-1'>
         <div className='container d-flex align-items-center justify-content-between'>
           <Link to='/'>
             <img className='navbar-logo' src='/images/navbar-logo.png' alt='Håvard Logo' />

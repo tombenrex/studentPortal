@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <main>
       <section className='section-hero hero min-vh-100'>
-        <div className='white-overlay'></div>
+        <div className='light-overlay'></div>
 
         <div className='container position-relative z-2 text-center'>
           <h1 className='display-4 fw-bold header'>

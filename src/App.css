@@ -1,12 +1,11 @@
 .section-hero {
-  position: relative;
-  height: 100vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-top: var(--navbar-height);
 }
 
 .container {
@@ -39,7 +38,7 @@
   background-image: url('./images/courses-hero.jpg');
 }
 
-.white-overlay {
+.light-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -83,6 +82,9 @@ a.menu-link {
 
   .container {
     gap: var(--spacing-sm);
+  }
+  .section-hero {
+    padding-top: calc(var(--navbar-height) + var(--spacing-sm));
   }
 
   .section-hero h1 {
