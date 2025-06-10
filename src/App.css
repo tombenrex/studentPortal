@@ -5,13 +5,11 @@
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
-  align-items: center;
-  padding-top: var(--navbar-height);
+  flex-direction: column;
+  justify-content: center;
 }
 
-.hero .container {
-  position: relative;
-  z-index: 2;
+.container {
   padding: var(--spacing-md);
 }
 
@@ -73,7 +71,7 @@ a.menu-link {
 }
 
 .menu-link:hover {
-  color: var(--gold);
+  color: var(--grey);
   transform: translateX(5px);
 }
 

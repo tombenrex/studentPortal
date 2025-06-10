@@ -3,7 +3,7 @@ import courses from '../data/courses'
 
 export default function Courses() {
   return (
-    <header className='section-hero courses'>
+    <section className='section-hero course'>
       <div className='white-overlay'></div>
 
       <div className='container position-relative text-white z-2'>
@@ -17,6 +17,6 @@ export default function Courses() {
           ))}
         </div>
       </div>
-    </header>
+    </section>
   )
 }
