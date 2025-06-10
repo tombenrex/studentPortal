@@ -1,11 +1,11 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import './App.css'
 import Navbar from './components/Navbar'
 import CourseDetails from './pages/CourseDetails'
 import Courses from './pages/Courses'
 import Home from './pages/Home'
 import News from './pages/News'
 import Register from './pages/Register'
-import './App.css'
 
 function App() {
   return (
@@ -24,4 +24,3 @@ function App() {
 }
 
 export default App
-12

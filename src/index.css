@@ -1,27 +1,28 @@
 :root {
   /* Färger */
-  --haavard-dark: #000000d3;
-  --haavard-red: #b71c1c;
-  --haavard-gold: #ffcc00;
-  --haavard-grey: #f8f9fa;
+  --dark: #000000d3;
+  --red: #b71c1c;
+  --gold: #ffcc00;
+  --grey: #f8f9fa;
 
   /* Fontstorlekar */
-  --haavard-header: clamp(1.5rem, 5vw, 2.5rem); /* För rubriker (h1) */
-  --haavard-subheader: clamp(1.2rem, 3vw, 1.8rem); /* För mindre rubriker (h2, h3) */
-  --haavard-text: clamp(0.9rem, 2.5vw, 1.1rem); /* För brödtext */
-  --haavard-small: clamp(0.7rem, 2vw, 0.9rem); /* För små texter, t.ex. footer */
+  --header: clamp(1.5rem, 5vw, 2.5rem); /* För rubriker (h1) */
+  --subheader: clamp(1.2rem, 3vw, 1.8rem); /* För mindre rubriker (h2, h3) */
+  --text: clamp(0.9rem, 2.5vw, 1.1rem); /* För brödtext */
+  --small: clamp(0.7rem, 2vw, 0.9rem); /* För små texter, t.ex. footer */
 
   /* Marginaler och padding */
-  --haavard-spacing-sm: clamp(0.5rem, 1.5vw, 0.75rem);
-  --haavard-spacing-md: clamp(1rem, 2.5vw, 1.5rem);
-  --haavard-spacing-lg: clamp(1.5rem, 4vw, 2rem);
+  --spacing-sm: clamp(0.5rem, 1.5vw, 0.75rem);
+  --spacing-md: clamp(1rem, 2.5vw, 1.5rem);
+  --spacing-lg: clamp(1.5rem, 4vw, 2rem);
 
   /* Knapphöjder och storlekar */
-  --haavard-btn-height: clamp(2rem, 5vw, 2.5rem);
-  --haavard-btn-font-size: clamp(0.9rem, 2.5vw, 1rem);
+  --btn-height: clamp(2rem, 5vw, 2.5rem);
+  --btn-font-size: clamp(0.9rem, 2.5vw, 1rem);
 
   /* Övriga storlekar */
-  --haavard-navbar-height: clamp(50px, 10vh, 70px);
+  --navbar-height: clamp(50px, 10vh, 70px);
+  --logo: clamp(40px, 10vw, 60px);
 }
 
 body {
