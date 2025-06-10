@@ -1,5 +1,26 @@
+.section-hero {
+  position: relative;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  padding-top: var(--haavard-navbar-height);
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+  padding: var(--haavard-spacing-md);
+}
+
 .header {
   color: var(--haavard-dark);
+  font-size: var(--haavard-header);
+}
+
+.section-hero h1 {
   font-size: var(--haavard-header);
 }
 
@@ -12,22 +33,12 @@
   z-index: 10;
 }
 
-.section-hero {
-  position: relative;
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-}
-
 .section-hero.hero {
-  background-image: url('../public/images/hero.png');
+  background-image: url('./images/hero.png');
 }
 
-.section-hero.courses {
-  background-image: url('../public/images/courses-hero.jpg');
+.section-hero.course {
+  background-image: url('./images/courses-hero.jpg');
 }
 
 .white-overlay {
@@ -38,11 +49,6 @@
   height: 100%;
   background: rgba(255, 255, 255, 0.563);
   z-index: 1;
-}
-
-.hero .container {
-  position: relative;
-  z-index: 2;
 }
 
 .navbar-logo {
@@ -69,4 +75,26 @@ a.menu-link {
 .menu-link:hover {
   color: var(--haavard-gold);
   transform: translateX(5px);
+}
+
+@media (max-width: 768px) {
+  /* .section-hero h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-hero .btn {
+    width: 100%;
+    max-width: 250px;
+  }
+  .header {
+    font-size: 2.5rem;
+  }
+  .section-hero {
+    padding-top: 60px;
+  } */
+
+  .container {
+    gap: 1rem;
+  }
 }
