@@ -1,8 +1,19 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [registrations, setRegistrations] = useState([])
+
+  const clearRegistrations = () => {
+    localStorage.removeItem('registrations')
+    setRegistrations([])
+  }
+
+  useEffect(() => {
+    const stored = JSON.parse(localStorage.getItem('registrations') || '[]')
+    setRegistrations(stored)
+  }, [menuOpen])
 
   return (
     <>
@@ -22,6 +33,37 @@ export default function Navbar() {
               />
             </form>
 
+            <div className='dropdown'>
+              <button
+                className='btn btn-outline-dark rounded-pill px-3 dropdown-toggle'
+                type='button'
+                data-bs-toggle='dropdown'
+                aria-expanded='false'
+              >
+                Mina kurser
+              </button>
+              <ul className='dropdown-menu dropdown-menu-end'>
+                {registrations.length === 0 ? (
+                  <li className='dropdown-item text-muted'>Inga registreringar</li>
+                ) : (
+                  registrations.map((reg, index) => (
+                    <li key={index} className='dropdown-item'>
+                      {reg.courseTitle}
+                    </li>
+                  ))
+                )}
+                <li>
+                  <hr className='dropdown-divider' />
+                </li>
+                <li>
+                  <button className='dropdown-item text-danger' onClick={clearRegistrations}>
+                    <i className='bi bi-trash3 me-2'></i>
+                    Rensa alla
+                  </button>
+                </li>
+              </ul>
+            </div>
+
             <button
               className='btn btn-outline-dark rounded-pill px-3'
               onClick={() => setMenuOpen(true)}
@@ -33,7 +75,7 @@ export default function Navbar() {
       </nav>
 
       <div
-        className='position-fixed top-0 start-0 w-100 h-100 bg-secondary text-white'
+        className='position-fixed top-0 start-0 w-100 h-100 bg-gradient-1 text-white'
         style={{
           zIndex: 1050,
           transform: menuOpen ? 'translateY(0)' : 'translateY(-100%)',
@@ -54,7 +96,7 @@ export default function Navbar() {
             </button>
           </div>
 
-          <nav className='fs-1 fw-bold mt-5'>
+          <nav className={`fs-1 fw-bold mt-5 ${menuOpen ? 'animate-fade-slide' : ''}`}>
             <p className='mb-4'>
               <Link className='menu-link' to='/courses' onClick={() => setMenuOpen(false)}>
                 Kurser
@@ -72,7 +114,7 @@ export default function Navbar() {
             </p>
           </nav>
 
-          <div className='text-white-50'>
+          <div className={`text-white-50 ${menuOpen ? 'animate-fade-slide delay-1s' : ''}`}>
             <small>2025 &#x2605; Ett roligt skolprojekt &#x2605; Tom Larsson &#x2605;</small>
           </div>
         </div>

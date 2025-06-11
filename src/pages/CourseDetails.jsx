@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import courses from '../data/courses'
 
 export default function CourseDetails() {
@@ -17,11 +17,41 @@ export default function CourseDetails() {
   }
 
   return (
-    <div className='container mt-5'>
-      <div className='card'>
+    <div className='wrapper'>
+      <div className='card shadow-lg border-0'>
         <div className='card-body'>
-          <h2 className='card-title'>{course.title}</h2>
-          <p className='card-text'>{course.description}</p>
+          <h2 className='card-title mb-3'>{course.title}</h2>
+          <p className='card-text text-muted'>{course.description}</p>
+
+          <hr />
+
+          <h5>Om kursen</h5>
+          <p>{course.details}</p>
+
+          <div className='row mt-4'>
+            <div className='col-md-6'>
+              <p>
+                <strong>Antal poäng:</strong> {course.credits} hp
+              </p>
+            </div>
+            <div className='col-md-6'>
+              <p>
+                <strong>Förkunskapskrav:</strong> {course.requirements}
+              </p>
+            </div>
+          </div>
+
+          <div className='d-flex gap-3 mt-4'>
+            <Link to={`/register?courseId=${course.id}`} className='btn btn-success'>
+              <i className='bi bi-pencil-square me-2'></i>
+              Registrera dig
+            </Link>
+
+            <Link to='/courses' className='btn btn-outline-dark'>
+              <i className='bi bi-arrow-left me-2'></i>
+              Tillbaka till kurserna
+            </Link>
+          </div>
         </div>
       </div>
     </div>
