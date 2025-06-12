@@ -9,6 +9,14 @@
   padding-top: var(--navbar-height);
 }
 
+.section-hero.hero {
+  background-image: url('./images/hero.png');
+}
+
+.section-hero.course {
+  background-image: url('./images/courses-hero.jpg');
+}
+
 .container {
   padding: var(--spacing-md);
 }
@@ -31,14 +39,6 @@
   z-index: 10;
 }
 
-.section-hero.hero {
-  background-image: url('./images/hero.png');
-}
-
-.section-hero.course {
-  background-image: url('./images/courses-hero.jpg');
-}
-
 .light-overlay {
   position: absolute;
   top: 0;
@@ -57,6 +57,11 @@
   height: 100%;
   background: rgba(255, 255, 255, 0.87);
   z-index: 1;
+}
+
+.highlight-box {
+  max-width: 600px;
+  width: 100%;
 }
 
 .navbar-logo {
@@ -88,10 +93,32 @@ a.menu-link {
 .wrapper {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding-top: 6rem;
-  padding: 2rem;
+}
+
+.pagefix {
+  padding: 10rem 10rem 0 10rem;
+}
+
+.menu-float {
+  position: absolute;
+  top: var(--spacing-sm);
+  right: var(--spacing-md);
+  z-index: 1051;
+  font-size: var(--btn-font-size);
+  padding: var(--spacing-sm) var(--spacing-md);
+  height: var(--btn-height);
+  border-radius: clamp(0.3rem, 1vw, 0.6rem);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.dropdown-menu {
+  padding: 0.5rem 1rem;
 }
 
 @media (max-width: 768px) {
@@ -117,5 +144,31 @@ a.menu-link {
 
   .navbar-logo {
     height: var(--logo);
+  }
+
+  .pagefix {
+    padding: 16rem 1rem 0 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar .form-control {
+    min-width: 20px !important;
+    font-size: 0.8rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .navbar .btn {
+    padding: 0.25rem 0.5rem !important;
+    font-size: 0.8rem;
+  }
+
+  .navbar .dropdown-toggle {
+    font-size: 0.8rem;
+  }
+
+  .wrapper article.card {
+    width: 90%;
+    max-width: 720px;
   }
 }

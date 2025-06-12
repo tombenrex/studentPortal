@@ -1,8 +1,3 @@
-body {
-  font-family: 'Merriweather', serif;
-  color: #000;
-}
-
 :root {
   /* Färger */
   --dark: #000000d3;
@@ -11,27 +6,67 @@ body {
   --grey: #f8f9fa;
 
   /* Fontstorlekar */
-  --header: clamp(1.5rem, 5vw, 2.5rem); /* För rubriker (h1) */
-  --subheader: clamp(1.2rem, 3vw, 1.8rem); /* För mindre rubriker (h2, h3) */
-  --text: clamp(0.9rem, 2.5vw, 1.1rem); /* För brödtext */
-  --small: clamp(0.7rem, 2vw, 0.9rem); /* För små texter, t.ex. footer */
+  --header: clamp(1.5rem, 5vw, 2.5rem); /* h1 */
+  --subheader: clamp(1.2rem, 3vw, 1.8rem); /* h2, h3 */
+  --text: clamp(0.9rem, 2.5vw, 1.1rem); /* p, li */
+  --small: clamp(0.7rem, 2vw, 0.9rem); /* footer */
 
-  /* Marginaler och padding */
+  /* Avstånd */
   --spacing-sm: clamp(0.5rem, 1.5vw, 0.75rem);
   --spacing-md: clamp(1rem, 2.5vw, 1.5rem);
   --spacing-lg: clamp(1.5rem, 4vw, 2rem);
 
-  /* Knapphöjder och storlekar */
+  /* Komponentstorlekar */
   --btn-height: clamp(2rem, 5vw, 2.5rem);
   --btn-font-size: clamp(0.9rem, 2.5vw, 1rem);
-
-  /* Övriga storlekar */
   --navbar-height: clamp(50px, 8vh, 60px);
   --logo: clamp(40px, 10vw, 60px);
 }
 
+/* Grundtypografi */
+body {
+  font-family: 'Merriweather', serif;
+  font-size: var(--text);
+  color: var(--dark);
+  background-color: var(--grey);
+  line-height: 1.6;
+}
+
+h1 {
+  font-size: var(--header);
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+}
+
+.menu-link,
+h2,
+h3 {
+  font-size: var(--subheader) !important;
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+}
+
+h4 {
+  font-size: var(--subheader) !important;
+  font-family: 'Merriweather', serif !important;
+  font-weight: 700;
+}
+
+p,
+li {
+  font-size: var(--text);
+  margin-bottom: var(--spacing-sm);
+}
+
+.link-text,
+small,
+button {
+  font-size: var(--small);
+}
+
+/* Bakgrunder */
 .bg-linear-1 {
-  background: linear-gradient(135deg, #ffffff48, #f32a2a2a);
+  background: linear-gradient(135deg, #fffffff0, #130101a5);
 }
 
 .bg-gradient-1 {
@@ -43,40 +78,33 @@ body {
     radial-gradient(99% 99% at 21% 78%, #7b00ffff 0%, #073aff00 100%),
     radial-gradient(160% 154% at 711px -303px, #00c9ffff 0%, #00c9ffff 64%, #073affff 100%);
 }
-
-/* Animationer */
-
-.navbar-logo {
-  animation: pulse 5s ease-in-out infinite;
-  transform-origin: center;
+.bg-gradient-2 {
+  background-size: 100% 100%;
+  background-position: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+  background-image: repeating-linear-gradient(315deg, #ffffff2e 92%, #00000000 100%),
+    repeating-radial-gradient(75% 75% at 238% 218%, #ffffff12 30%, #00000014 39%),
+    radial-gradient(99% 99% at 109% 2%, #ffffff 0%, #00000000 100%),
+    radial-gradient(99% 99% at 21% 78%, #cccccc 0%, #00000000 100%),
+    radial-gradient(160% 154% at 711px -303px, #ffffff 0%, #000000 100%);
 }
 
-.navbar-logo:hover {
-  transform: scale(1.03); /* lite större än pulsens topp */
-  filter: brightness(1.3); /* ljusar upp en aning */
-}
+/* Animationer & effekter */
 
 .animate-fade-slide {
   opacity: 0;
   animation: fadeSlideUp 0.8s ease-out both;
 }
 
+.animate-fade-slide-down {
+  opacity: 0;
+  animation: fadeSlideDown 0.8s ease-out both;
+}
+
 .delay-1s {
   animation-delay: 1s;
 }
-
 .delay-2s {
   animation-delay: 2s;
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.025);
-  }
 }
 
 @keyframes fadeSlideUp {
@@ -87,5 +115,15 @@ body {
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+@keyframes fadeSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(10px);
   }
 }

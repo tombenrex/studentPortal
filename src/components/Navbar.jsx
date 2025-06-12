@@ -17,58 +17,63 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className='navbar navbar-expand-lg navbar-light navbar-overlay py-1'>
+      <nav className='navbar navbar-expand-lg navbar-light navbar-overlay py-4'>
         <div className='container d-flex align-items-center justify-content-between'>
           <Link to='/'>
             <img className='navbar-logo' src='/images/navbar-logo.png' alt='Håvard Logo' />
           </Link>
 
-          <div className='d-flex align-items-center gap-2'>
+          <div className='d-flex align-items-center gap-3 mt-3'>
             <form className='d-flex'>
               <input
                 className='form-control form-control-sm border rounded-pill px-3'
                 type='search'
                 placeholder='Sök'
-                style={{ minWidth: '160px' }}
+                style={{ minWidth: '30px' }}
               />
             </form>
 
             <div className='dropdown'>
-              <button
-                className='btn btn-outline-dark rounded-pill px-3 dropdown-toggle'
-                type='button'
-                data-bs-toggle='dropdown'
-                aria-expanded='false'
-              >
-                Mina kurser
-              </button>
-              <ul className='dropdown-menu dropdown-menu-end'>
-                {registrations.length === 0 ? (
-                  <li className='dropdown-item text-muted'>Inga registreringar</li>
-                ) : (
-                  registrations.map((reg, index) => (
-                    <li key={index} className='dropdown-item'>
-                      {reg.courseTitle}
-                    </li>
-                  ))
-                )}
-                <li>
-                  <hr className='dropdown-divider' />
-                </li>
-                <li>
-                  <button className='dropdown-item text-danger' onClick={clearRegistrations}>
-                    <i className='bi bi-trash3 me-2'></i>
-                    Rensa alla
-                  </button>
-                </li>
-              </ul>
+              <div className=''>
+                <button
+                  className='btn btn-outline-dark rounded-pill btn-sm gap-1 px-3 py-1 dropdown-toggle bg-gradient-2 p-2'
+                  type='button'
+                  data-bs-toggle='dropdown'
+                  aria-expanded='false'
+                >
+                  Mina kurser
+                </button>
+                <ul className='dropdown-menu dropdown-menu-end border dark animate-fade-slide-down'>
+                  {registrations.length === 0 ? (
+                    <li className='dropdown-item text-dark'>Inga registreringar</li>
+                  ) : (
+                    registrations.map((reg, index) => (
+                      <li key={index} className='dropdown-item'>
+                        {reg.courseTitle}
+                      </li>
+                    ))
+                  )}
+                  <li>
+                    <hr className='dropdown-divider' />
+                  </li>
+                  <li>
+                    <button
+                      className='dropdown-item text-white border border-black rounded bg-gradient-2'
+                      onClick={clearRegistrations}
+                    >
+                      <i className='bi bi-trash3 me-1'></i>
+                      Rensa alla
+                    </button>
+                  </li>
+                </ul>
+              </div>
             </div>
 
             <button
-              className='btn btn-outline-dark rounded-pill px-3'
+              className='btn btn-outline-dark rounded-pill btn-sm d-flex align-items-center gap-1 text-white px-3 py-1 menu-float bg-gradient-2'
               onClick={() => setMenuOpen(true)}
             >
-              <i className='bi bi-list me-2'></i> Meny
+              <i className='bi bi-list'></i> Meny
             </button>
           </div>
         </div>
@@ -89,7 +94,7 @@ export default function Navbar() {
               <img className='navbar-logo' src='/images/navbar-logo.png' alt='Håvard Logo' />
             </Link>
             <button
-              className='btn btn-outline-light rounded-pill px-4 py-2 d-flex align-items-center gap-2'
+              className='btn btn-outline-dark rounded-pill btn-sm d-flex align-items-center gap-1 px-3 py-1 menu-float'
               onClick={() => setMenuOpen(false)}
             >
               <i className='bi bi-chevron-left'></i> Tillbaka

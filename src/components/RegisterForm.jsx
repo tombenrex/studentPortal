@@ -1,10 +1,11 @@
 import { Alert, Box, Button, MenuItem, TextField, Typography } from '@mui/material'
 import { useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import courses from '../data/courses'
 
 export default function RegisterForm() {
   const location = useLocation()
+  const navigate = useNavigate()
   const queryParams = new URLSearchParams(location.search)
   const initialCourseId = queryParams.get('courseId') || ''
 
@@ -50,7 +51,11 @@ export default function RegisterForm() {
     localStorage.setItem('registrations', JSON.stringify(updated))
 
     setSubmitted(true)
-    setError(false)
+    setError('')
+
+    setTimeout(() => {
+      navigate('/')
+    }, 6000)
   }
 
   return (
@@ -61,8 +66,9 @@ export default function RegisterForm() {
 
       {submitted ? (
         <Alert severity='success'>
-          Tack för din registrering, {form.name}! Du har registrerat dig till "
-          {courses.find(c => c.id === parseInt(form.courseId))?.title}".
+          Tack {form.name}! Du har registrerat dig till "
+          {courses.find(c => c.id === parseInt(form.courseId))?.title}". Du skickas strax tillbaka
+          till startsidan...
         </Alert>
       ) : (
         <form onSubmit={handleSubmit}>
@@ -101,11 +107,17 @@ export default function RegisterForm() {
 
           {error && (
             <Alert severity='error' sx={{ mt: 2 }}>
-              Alla fält måste fyllas i innan du kan skicka.
+              {error}
             </Alert>
           )}
 
-          <Button type='submit' variant='contained' color='primary' sx={{ mt: 3 }}>
+          <Button
+            type='submit'
+            className='bg-gradient-2 border border-black'
+            variant='contained'
+            color='primary'
+            sx={{ mt: 3 }}
+          >
             Skicka
           </Button>
         </form>

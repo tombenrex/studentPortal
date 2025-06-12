@@ -7,53 +7,55 @@ export default function CourseDetails() {
 
   if (!course) {
     return (
-      <div className='container mt-4'>
-        <div className='alert alert-danger'>
+      <main className='container mt-5'>
+        <section className='alert alert-danger text-center'>
           <h4>Kurs hittades inte</h4>
           <p>Ingen kurs med ID: {id} kunde hittas.</p>
-        </div>
-      </div>
+        </section>
+      </main>
     )
   }
 
   return (
-    <div className='wrapper'>
-      <div className='card shadow-lg border-0'>
+    <main className='wrapper bg-gradient-2'>
+      <article className='card shadow-lg border-0 mt-5'>
         <div className='card-body'>
           <h2 className='card-title mb-3'>{course.title}</h2>
           <p className='card-text text-muted'>{course.description}</p>
 
           <hr />
 
-          <h5>Om kursen</h5>
-          <p>{course.details}</p>
+          <section>
+            <h5>Om kursen</h5>
+            <p>{course.details}</p>
 
-          <div className='row mt-4'>
-            <div className='col-md-6'>
-              <p>
-                <strong>Antal poäng:</strong> {course.credits} hp
-              </p>
+            <div className='row mt-4'>
+              <div className='col-md-6'>
+                <p>
+                  <strong>Antal poäng:</strong> {course.credits} hp
+                </p>
+              </div>
+              <div className='col-md-6'>
+                <p>
+                  <strong>Förkunskapskrav:</strong> {course.requirements}
+                </p>
+              </div>
             </div>
-            <div className='col-md-6'>
-              <p>
-                <strong>Förkunskapskrav:</strong> {course.requirements}
-              </p>
-            </div>
-          </div>
+          </section>
 
           <div className='d-flex gap-3 mt-4'>
-            <Link to={`/register?courseId=${course.id}`} className='btn btn-success'>
+            <Link to={`/register?courseId=${course.id}`} className='btn btn-success link-text'>
               <i className='bi bi-pencil-square me-2'></i>
               Registrera dig
             </Link>
 
-            <Link to='/courses' className='btn btn-outline-dark'>
+            <Link to='/courses' className='btn btn-outline-dark link-text'>
               <i className='bi bi-arrow-left me-2'></i>
               Tillbaka till kurserna
             </Link>
           </div>
         </div>
-      </div>
-    </div>
+      </article>
+    </main>
   )
 }
