@@ -1,10 +1,16 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import courses from '../data/courses'
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [registrations, setRegistrations] = useState([])
   const [dropdownOpen, setDropdownOpen] = useState(false)
+  const [searchQuery, setSearchQuery] = useState('')
+
+  const filteredCourses = courses.filter(course =>
+    course.title.toLowerCase().includes(searchQuery.toLowerCase())
+  )
 
   const clearRegistrations = () => {
     localStorage.removeItem('registrations')
@@ -107,19 +113,47 @@ export default function Navbar() {
               </Link>
             </p>
           </nav>
-          <form className='d-flex'>
+
+          {/* 🔍 Sökfält med resultat */}
+          <div className='position-relative w-100 mt-3'>
             <input
               className='form-control form-control-sm border rounded-pill px-3'
               type='search'
-              placeholder='Sök'
-              style={{ minWidth: '30px' }}
+              placeholder='Sök kurs...'
+              value={searchQuery}
+              onChange={e => setSearchQuery(e.target.value)}
+              onKeyDown={e => {
+                if (e.key === 'Escape') setSearchQuery('')
+              }}
+              style={{ minWidth: '150px' }}
             />
-          </form>
-          <>
-            <div className={`text-white-50 ${menuOpen ? 'animate-fade-slide delay-1s' : ''}`}>
-              <small>2025 &#x2605; Ett roligt skolprojekt &#x2605; Tom Larsson &#x2605;</small>
-            </div>
-          </>
+            {searchQuery && (
+              <ul className='list-group position-absolute mt-1 w-100 z-3'>
+                {filteredCourses.length > 0 ? (
+                  filteredCourses.map(course => (
+                    <li key={course.id} className='list-group-item list-group-item-action'>
+                      <Link
+                        to={`/courses/${course.id}`}
+                        className='text-decoration-none text-dark'
+                        onClick={() => {
+                          setSearchQuery('')
+                          setMenuOpen(false)
+                        }}
+                      >
+                        {course.title}
+                      </Link>
+                    </li>
+                  ))
+                ) : (
+                  <li className='list-group-item text-muted'>Inga träffar</li>
+                )}
+              </ul>
+            )}
+          </div>
+
+          <div className={`text-white-50 ${menuOpen ? 'animate-fade-slide delay-1s' : ''}`}>
+            <small>2025 &#x2605; Ett roligt skolprojekt &#x2605; Tom Larsson &#x2605;</small>
+          </div>
         </div>
       </div>
     </>

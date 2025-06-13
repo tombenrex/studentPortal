@@ -112,6 +112,23 @@ a.menu-link {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+.list-group {
+  max-height: 250px;
+  overflow-y: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  background-color: white;
+}
+
+.list-group-item {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.list-group-item:hover {
+  background-color: #f1f1f1;
+}
+
 @media (max-width: 576px) {
   .navbar-buttons {
     flex-direction: column;
