@@ -89,11 +89,38 @@ a.menu-link {
   gap: var(--spacing-sm);
 }
 
+.dropdown-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.custom-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 1100;
+  min-width: 220px;
+  padding: 0.75rem;
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: saturate(180%) blur(8px);
+  -webkit-backdrop-filter: saturate(180%) blur(8px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 @media (max-width: 576px) {
   .navbar-buttons {
     flex-direction: column;
     gap: var(--spacing-sm);
     margin-top: var(--spacing-sm);
+  }
+  .bg-courses,
+  .bg-gradient-2 {
+    padding: 5rem 1rem 1rem 1rem;
   }
 }
 
@@ -121,39 +148,18 @@ a.menu-link {
     padding: 1rem;
   }
 
-  .main {
-    padding-top: 4rem;
-    justify-content: flex-start;
+  .section.card {
+    max-height: 60%;
   }
 
+  main {
+    justify-content: flex-start;
+  }
   .container {
-    padding-inline: var(--spacing-sm);
+    max-width: 100%;
   }
 
   nav .mb-4 {
     margin-bottom: 0.5rem !important;
   }
-}
-
-.dropdown-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-}
-
-.custom-dropdown-menu {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  z-index: 1100;
-  min-width: 220px;
-  padding: 0.75rem;
-  border-radius: 1rem;
-  background-color: rgba(255, 255, 255, 0.9);
-  backdrop-filter: saturate(180%) blur(8px);
-  -webkit-backdrop-filter: saturate(180%) blur(8px);
-  border: 1px solid rgba(0, 0, 0, 0.1);
 }

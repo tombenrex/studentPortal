@@ -7,7 +7,7 @@ export default function CourseDetails() {
 
   if (!course) {
     return (
-      <main className='container mt-5'>
+      <main className='container'>
         <section className='alert alert-danger text-center'>
           <h4>Kurs hittades inte</h4>
           <p>Ingen kurs med ID: {id} kunde hittas.</p>
@@ -17,8 +17,8 @@ export default function CourseDetails() {
   }
 
   return (
-    <main className='wrapper bg-gradient-2'>
-      <article className='card shadow-lg border-0 mt-5'>
+    <main className='bg-gradient-2'>
+      <article className='card shadow-lg border-0 p-3 m-4'>
         <div className='card-body'>
           <h2 className='card-title mb-3'>{course.title}</h2>
           <p className='card-text text-muted'>{course.description}</p>
@@ -44,12 +44,12 @@ export default function CourseDetails() {
           </section>
 
           <div className='d-flex gap-3 mt-4'>
-            <Link to={`/register?courseId=${course.id}`} className='btn btn-success link-text'>
-              <i className='bi bi-pencil-square me-2'></i>
+            <Link to={`/register?courseId=${course.id}`} className='btn btn-success'>
+              <i className='bi bi-pencil-square me-2 btn'></i>
               Registrera dig
             </Link>
 
-            <Link to='/courses' className='btn btn-outline-dark link-text'>
+            <Link to='/courses' className='btn-2'>
               <i className='bi bi-arrow-left me-2'></i>
               Tillbaka till kurserna
             </Link>

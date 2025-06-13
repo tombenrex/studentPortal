@@ -85,10 +85,7 @@ export default function Navbar() {
             <Link to='/' onClick={() => setMenuOpen(false)}>
               <img className='navbar-logo' src='/images/navbar-logo.png' alt='Håvard Logo' />
             </Link>
-            <button
-              className='btn btn-outline-dark rounded-pill btn-sm d-flex align-items-center gap-1 px-3 py-1 menu-float'
-              onClick={() => setMenuOpen(false)}
-            >
+            <button className='btn-1' onClick={() => setMenuOpen(false)}>
               <i className='bi bi-chevron-left'></i> Tillbaka
             </button>
           </div>

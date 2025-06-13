@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom'
 
 export default function Home() {
   return (
-    <main className='main-hero'>
+    <main className='main-hero p-5'>
       <div className='light-overlay'></div>
 
-      <section className='container text-center z-2 position-relative'>
+      <section className='container text-center z-2 position-relative pt-3'>
         <h1 className='display-4 fw-bold'>
           Grattis till
           <br />

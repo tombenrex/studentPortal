@@ -59,7 +59,7 @@ export default function RegisterForm() {
   }
 
   return (
-    <Box maxWidth='500px' mx='auto' mt={5}>
+    <Box mx='auto' mt='3' px='1'>
       <Typography variant='h4' gutterBottom>
         Registrera dig till en kurs
       </Typography>
@@ -111,13 +111,7 @@ export default function RegisterForm() {
             </Alert>
           )}
 
-          <Button
-            type='submit'
-            className='bg-gradient-2 border border-black'
-            variant='contained'
-            color='primary'
-            sx={{ mt: 3 }}
-          >
+          <Button type='submit' className='btn-2' sx={{ mt: 1 }}>
             Skicka
           </Button>
         </form>
