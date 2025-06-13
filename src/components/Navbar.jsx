@@ -95,27 +95,7 @@ export default function Navbar() {
               <i className='bi bi-chevron-left'></i> Tillbaka
             </button>
           </div>
-
-          <nav className={` ${menuOpen ? 'animate-fade-slide' : ''}`}>
-            <p className='mb-4'>
-              <Link className='menu-link' to='/courses' onClick={() => setMenuOpen(false)}>
-                Kurser
-              </Link>
-            </p>
-            <p className='mb-4'>
-              <Link className='menu-link' to='/register' onClick={() => setMenuOpen(false)}>
-                Registrera
-              </Link>
-            </p>
-            <p className='mb-4'>
-              <Link className='menu-link' to='/news' onClick={() => setMenuOpen(false)}>
-                Nyheter
-              </Link>
-            </p>
-          </nav>
-
-          {/* 🔍 Sökfält med resultat */}
-          <div className='position-relative w-100 mt-3'>
+          <div className='position-relative w-25 mt-3'>
             <input
               className='form-control form-control-sm border rounded-pill px-3'
               type='search'
@@ -150,6 +130,23 @@ export default function Navbar() {
               </ul>
             )}
           </div>
+          <nav className={` ${menuOpen ? 'animate-fade-slide' : ''}`}>
+            <p className='mb-4'>
+              <Link className='menu-link' to='/courses' onClick={() => setMenuOpen(false)}>
+                Kurser
+              </Link>
+            </p>
+            <p className='mb-4'>
+              <Link className='menu-link' to='/register' onClick={() => setMenuOpen(false)}>
+                Registrera
+              </Link>
+            </p>
+            <p className='mb-4'>
+              <Link className='menu-link' to='/news' onClick={() => setMenuOpen(false)}>
+                Nyheter
+              </Link>
+            </p>
+          </nav>
 
           <div className={`text-white-50 ${menuOpen ? 'animate-fade-slide delay-1s' : ''}`}>
             <small>2025 &#x2605; Ett roligt skolprojekt &#x2605; Tom Larsson &#x2605;</small>

@@ -18,7 +18,7 @@ export default function CourseDetails() {
 
   return (
     <main className='bg-gradient-2'>
-      <article className='card shadow-lg border-0 p-3 m-4'>
+      <article className='card shadow-lg border-0 p-1 m-4 mw-50'>
         <div className='card-body'>
           <h2 className='card-title mb-3'>{course.title}</h2>
           <p className='card-text text-muted'>{course.description}</p>
