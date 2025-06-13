@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
+    "homepage": "https://tombenrex.github.io/studentportal",
     "preview": "vite preview"
   },
   "dependencies": {
