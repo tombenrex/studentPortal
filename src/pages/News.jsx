@@ -33,7 +33,7 @@ export default function News() {
 
   return (
     <main className='bg-gradient-2'>
-      <section className=' animate-fade-slide'>
+      <section className=' animate-fade-slide container'>
         <h2 className='subheader text-center pt-4'>Senaste utbildningsnyheterna</h2>
 
         {loading && <p className='text-muted'>Hämtar nyheter...</p>}

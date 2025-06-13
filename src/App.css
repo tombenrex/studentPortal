@@ -102,7 +102,7 @@ a.menu-link {
   position: absolute;
   top: 100%;
   right: 0;
-  z-index: 1100;
+  z-index: 1200;
   min-width: 220px;
   padding: 0.75rem;
   border-radius: 1rem;
@@ -118,6 +118,7 @@ a.menu-link {
   border-radius: 0.5rem;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
   background-color: white;
+  z-index: 1053;
 }
 
 .list-group-item {
@@ -178,5 +179,9 @@ a.menu-link {
 
   nav .mb-4 {
     margin-bottom: 0.5rem !important;
+  }
+
+  .row {
+    padding: 2rem;
   }
 }

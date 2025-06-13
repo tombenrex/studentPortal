@@ -7,7 +7,7 @@
   /* Fontstorlekar */
   --header: clamp(1.5rem, 5vw, 2.5rem); /* h1 */
   --subheader: clamp(1.2rem, 3vw, 1.8rem); /* h2, h3 */
-  --subheader2: clamp(1rem, 2.9vw, 1.6rem) /* h5 */
+  --subheader2: clamp(1rem, 2.9vw, 1.6rem); /* h5 */
   --text: clamp(0.9rem, 2.5vw, 1.1rem); /* p, li */
   --small: clamp(0.7rem, 2vw, 0.9rem); /* footer */
 
@@ -129,7 +129,7 @@ h5 {
   font-size: var(--subheader2) !important;
   font-family: 'IBM Plex Mono', monospace;
   font-weight: 800 !important;
-  color: var(--blue)!important;
+  color: var(--blue) !important;
 }
 
 p,

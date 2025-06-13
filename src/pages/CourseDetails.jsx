@@ -46,12 +46,12 @@ export default function CourseDetails() {
           <div className='d-flex gap-3 mt-4'>
             <Link to={`/register?courseId=${course.id}`} className='btn btn-success'>
               <i className='bi bi-pencil-square me-2 btn'></i>
-              Registrera dig
+              Registrera
             </Link>
 
             <Link to='/courses' className='btn-2'>
               <i className='bi bi-arrow-left me-2'></i>
-              Tillbaka till kurserna
+              Alla kurserna
             </Link>
           </div>
         </div>

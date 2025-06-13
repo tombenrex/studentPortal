@@ -6,7 +6,7 @@ export default function Courses() {
     <main className='main-hero bg-courses'>
       <div className='light-overlay-2'></div>
 
-      <section className='text-white z-2 position-relative container py-5'>
+      <section className='z-2 position-relative container py-5'>
         <h1 className='header text-center animate-fade-slide delay-1s mt-2'>Tillgängliga kurser</h1>
 
         <div className='row'>

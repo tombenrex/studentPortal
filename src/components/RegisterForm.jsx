@@ -59,7 +59,7 @@ export default function RegisterForm() {
   }
 
   return (
-    <Box mx='auto' mt='3' px='1'>
+    <Box mx='10px' mt='3' px='1'>
       <Typography variant='h4' gutterBottom>
         Registrera dig till en kurs
       </Typography>

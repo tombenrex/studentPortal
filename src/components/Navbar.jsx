@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import courses from '../data/courses'
 
@@ -8,9 +8,9 @@ export default function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
 
-  const filteredCourses = courses.filter(course =>
-    course.title.toLowerCase().includes(searchQuery.toLowerCase())
-  )
+  const filteredCourses = useMemo(() => {
+    return courses.filter(course => course.title.toLowerCase().includes(searchQuery.toLowerCase()))
+  }, [searchQuery])
 
   const clearRegistrations = () => {
     localStorage.removeItem('registrations')
@@ -20,14 +20,26 @@ export default function Navbar() {
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem('registrations') || '[]')
     setRegistrations(stored)
-  }, [menuOpen])
+  }, [])
 
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen)
 
   return (
     <>
       {dropdownOpen && (
-        <div className='dropdown-overlay' onClick={() => setDropdownOpen(false)}></div>
+        <div
+          className='dropdown-overlay'
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            zIndex: 1049,
+            background: 'rgba(0, 0, 0, 0.5)',
+          }}
+          onClick={() => setDropdownOpen(false)}
+        ></div>
       )}
 
       <nav className='navbar navbar-expand-lg navbar-overlay'>
@@ -36,19 +48,20 @@ export default function Navbar() {
             <img className='navbar-logo' src='/images/navbar-logo.png' alt='Håvard Logo' />
           </Link>
 
-          <div className='navbar-buttons d-flex gap-2 px-2'>
-            <div className='dropdown position-relative'>
+          <div className='navbar-buttons d-flex gap-2'>
+            <div className='position-relative'>
               <button
                 className='btn-1 dropdown-toggle'
                 type='button'
                 aria-expanded={dropdownOpen}
+                aria-controls='dropdown-menu'
                 onClick={toggleDropdown}
               >
                 Mina kurser
               </button>
 
               {dropdownOpen && (
-                <ul className='dropdown-menu show custom-dropdown-menu shadow'>
+                <ul id='dropdown-menu' className='dropdown-menu show custom-dropdown-menu shadow'>
                   {registrations.length === 0 ? (
                     <li className='dropdown-item'>Inga registreringar</li>
                   ) : (
@@ -78,7 +91,7 @@ export default function Navbar() {
       </nav>
 
       <div
-        className='position-fixed top-0 start-0 w-100 h-100 bg-gradient-1 text-white'
+        className='position-fixed top-0 start-0 w-100 h-100 bg-gradient-1'
         style={{
           zIndex: 1050,
           transform: menuOpen ? 'translateY(0)' : 'translateY(-100%)',
@@ -86,8 +99,8 @@ export default function Navbar() {
           pointerEvents: menuOpen ? 'auto' : 'none',
         }}
       >
-        <div className='d-flex flex-column justify-content-between h-100 p-4'>
-          <div className='d-flex justify-content-between align-items-center'>
+        <div className='d-flex flex-column h-100 p-2 container'>
+          <div className='d-flex align-items-center justify-content-between'>
             <Link to='/' onClick={() => setMenuOpen(false)}>
               <img className='navbar-logo' src='/images/navbar-logo.png' alt='Håvard Logo' />
             </Link>
@@ -95,61 +108,71 @@ export default function Navbar() {
               <i className='bi bi-chevron-left'></i> Tillbaka
             </button>
           </div>
-          <div className='position-relative w-25 mt-3'>
-            <input
-              className='form-control form-control-sm border rounded-pill px-3'
-              type='search'
-              placeholder='Sök kurs...'
-              value={searchQuery}
-              onChange={e => setSearchQuery(e.target.value)}
-              onKeyDown={e => {
-                if (e.key === 'Escape') setSearchQuery('')
-              }}
-              style={{ minWidth: '150px' }}
-            />
-            {searchQuery && (
-              <ul className='list-group position-absolute mt-1 w-100 z-3'>
-                {filteredCourses.length > 0 ? (
-                  filteredCourses.map(course => (
-                    <li key={course.id} className='list-group-item list-group-item-action'>
-                      <Link
-                        to={`/courses/${course.id}`}
-                        className='text-decoration-none text-dark'
-                        onClick={() => {
-                          setSearchQuery('')
-                          setMenuOpen(false)
-                        }}
-                      >
-                        {course.title}
-                      </Link>
-                    </li>
-                  ))
-                ) : (
-                  <li className='list-group-item text-muted'>Inga träffar</li>
-                )}
-              </ul>
-            )}
-          </div>
-          <nav className={` ${menuOpen ? 'animate-fade-slide' : ''}`}>
-            <p className='mb-4'>
-              <Link className='menu-link' to='/courses' onClick={() => setMenuOpen(false)}>
-                Kurser
-              </Link>
-            </p>
-            <p className='mb-4'>
-              <Link className='menu-link' to='/register' onClick={() => setMenuOpen(false)}>
-                Registrera
-              </Link>
-            </p>
-            <p className='mb-4'>
-              <Link className='menu-link' to='/news' onClick={() => setMenuOpen(false)}>
-                Nyheter
-              </Link>
-            </p>
-          </nav>
 
-          <div className={`text-white-50 ${menuOpen ? 'animate-fade-slide delay-1s' : ''}`}>
-            <small>2025 &#x2605; Ett roligt skolprojekt &#x2605; Tom Larsson &#x2605;</small>
+          <div className='position-relative d-flex flex-column justify-content-between flex-grow-1'>
+            <div className='position-relative'>
+              <input
+                className='form-control form-control-sm border rounded-pill mt-3 w-50'
+                type='search'
+                placeholder='Sök kurs...'
+                value={searchQuery}
+                onChange={e => setSearchQuery(e.target.value)}
+                onKeyDown={e => {
+                  if (e.key === 'Escape') setSearchQuery('')
+                }}
+                style={{ minWidth: '150px' }}
+              />
+              {searchQuery && (
+                <ul
+                  className='list-group position-absolute mt-1 w-50 search-dropdown'
+                  style={{ top: '100%' }}
+                >
+                  {filteredCourses.length > 0 ? (
+                    filteredCourses.map(course => (
+                      <li key={course.id} className='list-group-item list-group-item-action'>
+                        <Link
+                          to={`/courses/${course.id}`}
+                          className='text-decoration-none text-dark'
+                          onClick={() => {
+                            setSearchQuery('')
+                            setMenuOpen(false)
+                          }}
+                        >
+                          {course.title}
+                        </Link>
+                      </li>
+                    ))
+                  ) : (
+                    <li className='list-group-item text-muted'>Inga träffar</li>
+                  )}
+                </ul>
+              )}
+            </div>
+
+            <nav className={`mt-4 ${menuOpen ? 'animate-fade-slide' : ''}`}>
+              <ul className='list-unstyled'>
+                <li className='mb-5'>
+                  <Link className='menu-link' to='/courses' onClick={() => setMenuOpen(false)}>
+                    Kurser
+                  </Link>
+                </li>
+                <li className='mb-5'>
+                  <Link className='menu-link' to='/register' onClick={() => setMenuOpen(false)}>
+                    Registrera
+                  </Link>
+                </li>
+                <li className='mb-5'>
+                  <Link className='menu-link' to='/news' onClick={() => setMenuOpen(false)}>
+                    Nyheter
+                  </Link>
+                </li>
+              </ul>
+              <div
+                className={`text-white-50 ${menuOpen ? 'animate-fade-slide delay-2s pt-4' : ''}`}
+              >
+                <small>2025 ★ Ett roligt skolprojekt ★ Tom Larsson ★</small>
+              </div>
+            </nav>
           </div>
         </div>
       </div>

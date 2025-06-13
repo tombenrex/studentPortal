@@ -6,11 +6,8 @@ export default function Home() {
       <div className='light-overlay'></div>
 
       <section className='container text-center z-2 position-relative pt-3'>
-        <h1 className='display-4 fw-bold'>
-          Grattis till
-          <br />
-          Studenterna 2025
-        </h1>
+        <h1 className='display-4'>Välkommen till oss!</h1>
+        <h2>Säkra din framtid</h2>
 
         <Link to='/courses' className='btn-2'>
           <i className='bi bi-arrow-right-circle me-2'></i>
