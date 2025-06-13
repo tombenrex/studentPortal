@@ -7,11 +7,11 @@
   flex-direction: column;
   justify-content: center;
   padding-top: var(--navbar-height);
-  background-image: url('./images/hero.png');
+  background-image: url('/images/hero.png');
 }
 
 .bg-courses {
-  background-image: url('./images/courses-hero.jpg');
+  background-image: url('/images/courses-hero.jpg');
 }
 
 .header {

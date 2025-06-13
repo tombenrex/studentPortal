@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import Navbar from './components/Navbar'
 import CourseDetails from './pages/CourseDetails'
@@ -9,7 +9,7 @@ import Register from './pages/Register'
 
 function App() {
   return (
-    <BrowserRouter>
+    <>
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
@@ -19,7 +19,7 @@ function App() {
         <Route path='/register' element={<Register />} />
         <Route path='*' element={<h1 className='text-center mt-5'>404 - Page Not Found</h1>} />
       </Routes>
-    </BrowserRouter>
+    </>
   )
 }
 
