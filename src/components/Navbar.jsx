@@ -170,7 +170,7 @@ export default function Navbar() {
               <div
                 className={`text-white-50 ${menuOpen ? 'animate-fade-slide delay-2s pt-4' : ''}`}
               >
-                <small>2025 ★ Ett roligt skolprojekt ★ Tom Larsson ★</small>
+                <small>2025 ★ skolprojekt ★ Tom Larsson ★</small>
               </div>
             </nav>
           </div>
