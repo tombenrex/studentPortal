@@ -32,9 +32,9 @@ export default function News() {
   }, [])
 
   return (
-    <main className='wrapper bg-gradient-2 pagefix'>
+    <main className='bg-gradient-2 pb-2'>
       <section className='container animate-fade-slide'>
-        <h2 className='subheader text-center mb-4'>Senaste utbildningsnyheterna</h2>
+        <h2 className='subheader text-center pt-3'>Senaste utbildningsnyheterna</h2>
 
         {loading && <p className='text-muted'>Hämtar nyheter...</p>}
         {error && <p className='text-danger'>Fel: {error}</p>}
@@ -42,7 +42,7 @@ export default function News() {
         {articles.length === 0 && !loading && !error ? (
           <p className='text-muted'>Inga nyheter hittades.</p>
         ) : (
-          <div className='row delay-1s'>
+          <div className='row g-3 delay-1s'>
             {articles.map((article, index) => (
               <NewsPost key={index} article={article} />
             ))}

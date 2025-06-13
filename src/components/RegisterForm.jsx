@@ -1,11 +1,11 @@
 import { Alert, Box, Button, MenuItem, TextField, Typography } from '@mui/material'
 import { useState } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import courses from '../data/courses'
 
 export default function RegisterForm() {
   const location = useLocation()
-  const navigate = useNavigate()
+
   const queryParams = new URLSearchParams(location.search)
   const initialCourseId = queryParams.get('courseId') || ''
 
@@ -49,12 +49,12 @@ export default function RegisterForm() {
 
     const updated = [...existing, registration]
     localStorage.setItem('registrations', JSON.stringify(updated))
+    localStorage.setItem('lastRegistration', Date.now().toString())
 
     setSubmitted(true)
     setError('')
-
     setTimeout(() => {
-      navigate('/')
+      window.location.href = '/courses'
     }, 6000)
   }
 

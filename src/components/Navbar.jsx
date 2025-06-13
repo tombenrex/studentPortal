@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [registrations, setRegistrations] = useState([])
+  const [dropdownOpen, setDropdownOpen] = useState(false)
 
   const clearRegistrations = () => {
     localStorage.removeItem('registrations')
@@ -15,37 +16,35 @@ export default function Navbar() {
     setRegistrations(stored)
   }, [menuOpen])
 
+  const toggleDropdown = () => setDropdownOpen(!dropdownOpen)
+
   return (
     <>
-      <nav className='navbar navbar-expand-lg navbar-light navbar-overlay py-4'>
+      {dropdownOpen && (
+        <div className='dropdown-overlay' onClick={() => setDropdownOpen(false)}></div>
+      )}
+
+      <nav className='navbar navbar-expand-lg navbar-overlay'>
         <div className='container d-flex align-items-center justify-content-between'>
           <Link to='/'>
             <img className='navbar-logo' src='/images/navbar-logo.png' alt='Håvard Logo' />
           </Link>
 
-          <div className='d-flex align-items-center gap-3 mt-3'>
-            <form className='d-flex'>
-              <input
-                className='form-control form-control-sm border rounded-pill px-3'
-                type='search'
-                placeholder='Sök'
-                style={{ minWidth: '30px' }}
-              />
-            </form>
+          <div className='navbar-buttons d-flex gap-2 px-2'>
+            <div className='dropdown position-relative'>
+              <button
+                className='btn-1 dropdown-toggle'
+                type='button'
+                aria-expanded={dropdownOpen}
+                onClick={toggleDropdown}
+              >
+                Mina kurser
+              </button>
 
-            <div className='dropdown'>
-              <div className=''>
-                <button
-                  className='btn btn-outline-dark rounded-pill btn-sm gap-1 px-3 py-1 dropdown-toggle bg-gradient-2 p-2'
-                  type='button'
-                  data-bs-toggle='dropdown'
-                  aria-expanded='false'
-                >
-                  Mina kurser
-                </button>
-                <ul className='dropdown-menu dropdown-menu-end border dark animate-fade-slide-down'>
+              {dropdownOpen && (
+                <ul className='dropdown-menu show custom-dropdown-menu shadow'>
                   {registrations.length === 0 ? (
-                    <li className='dropdown-item text-dark'>Inga registreringar</li>
+                    <li className='dropdown-item'>Inga registreringar</li>
                   ) : (
                     registrations.map((reg, index) => (
                       <li key={index} className='dropdown-item'>
@@ -57,22 +56,15 @@ export default function Navbar() {
                     <hr className='dropdown-divider' />
                   </li>
                   <li>
-                    <button
-                      className='dropdown-item text-white border border-black rounded bg-gradient-2'
-                      onClick={clearRegistrations}
-                    >
-                      <i className='bi bi-trash3 me-1'></i>
-                      Rensa alla
+                    <button className='dropdown-item btn-1' onClick={clearRegistrations}>
+                      <i className='bi bi-trash3 me-1'></i> Rensa alla
                     </button>
                   </li>
                 </ul>
-              </div>
+              )}
             </div>
 
-            <button
-              className='btn btn-outline-dark rounded-pill btn-sm d-flex align-items-center gap-1 text-white px-3 py-1 menu-float bg-gradient-2'
-              onClick={() => setMenuOpen(true)}
-            >
+            <button className='btn-1' onClick={() => setMenuOpen(true)}>
               <i className='bi bi-list'></i> Meny
             </button>
           </div>
@@ -101,7 +93,7 @@ export default function Navbar() {
             </button>
           </div>
 
-          <nav className={`fs-1 fw-bold mt-5 ${menuOpen ? 'animate-fade-slide' : ''}`}>
+          <nav className={` ${menuOpen ? 'animate-fade-slide' : ''}`}>
             <p className='mb-4'>
               <Link className='menu-link' to='/courses' onClick={() => setMenuOpen(false)}>
                 Kurser
@@ -118,10 +110,19 @@ export default function Navbar() {
               </Link>
             </p>
           </nav>
-
-          <div className={`text-white-50 ${menuOpen ? 'animate-fade-slide delay-1s' : ''}`}>
-            <small>2025 &#x2605; Ett roligt skolprojekt &#x2605; Tom Larsson &#x2605;</small>
-          </div>
+          <form className='d-flex'>
+            <input
+              className='form-control form-control-sm border rounded-pill px-3'
+              type='search'
+              placeholder='Sök'
+              style={{ minWidth: '30px' }}
+            />
+          </form>
+          <>
+            <div className={`text-white-50 ${menuOpen ? 'animate-fade-slide delay-1s' : ''}`}>
+              <small>2025 &#x2605; Ett roligt skolprojekt &#x2605; Tom Larsson &#x2605;</small>
+            </div>
+          </>
         </div>
       </div>
     </>

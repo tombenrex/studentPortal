@@ -1,13 +1,13 @@
 :root {
   /* Färger */
   --dark: #000000d3;
-  --red: #b71c1c;
-  --gold: #ffcc00;
-  --grey: #f8f9fa;
+  --light: #f8f9fa;
+  --blue: rgb(13, 13, 136);
 
   /* Fontstorlekar */
   --header: clamp(1.5rem, 5vw, 2.5rem); /* h1 */
   --subheader: clamp(1.2rem, 3vw, 1.8rem); /* h2, h3 */
+  --subheader2: clamp(1rem, 2.9vw, 1.6rem) /* h5 */
   --text: clamp(0.9rem, 2.5vw, 1.1rem); /* p, li */
   --small: clamp(0.7rem, 2vw, 0.9rem); /* footer */
 
@@ -21,9 +21,77 @@
   --btn-font-size: clamp(0.9rem, 2.5vw, 1rem);
   --navbar-height: clamp(50px, 8vh, 60px);
   --logo: clamp(40px, 10vw, 60px);
+
+  /* Gradients */
+  --linear-gradient-1: repeating-linear-gradient(315deg, #00ffff2e 92%, #073aff00 100%),
+    repeating-radial-gradient(75% 75% at 238% 218%, #00ffff12 30%, #073aff14 39%),
+    radial-gradient(99% 99% at 109% 2%, #00c9ffff 0%, #00c9ffff 32%, #00c9ffff 53%, #073aff00 100%),
+    radial-gradient(99% 99% at 21% 78%, #7b00ffff 0%, #073aff00 100%),
+    radial-gradient(160% 154% at 711px -303px, #00c9ffff 0%, #00c9ffff 64%, #073affff 100%);
+
+  --linear-gradient-2: repeating-linear-gradient(315deg, #ffffff2e 92%, #00000000 100%),
+    repeating-radial-gradient(75% 75% at 238% 218%, #ffffff12 30%, #00000014 39%),
+    radial-gradient(99% 99% at 109% 2%, #ffffff 0%, #00000000 100%),
+    radial-gradient(99% 99% at 21% 78%, #cccccc 0%, #00000000 100%),
+    radial-gradient(160% 154% at 711px -303px, #ffffff 0%, #000000 100%);
 }
 
-/* Grundtypografi */
+/* KNAPPAR */
+.btn-1 {
+  background-color: var(--dark);
+  color: var(--light);
+  border: 1px solid var(--light);
+  border-radius: 999px;
+  padding: 0.5rem 1.25rem;
+  font-size: var(--small);
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.btn-1:hover,
+.btn-1:focus {
+  background-color: #333;
+  transform: scale(1.02);
+}
+
+.btn-2 {
+  background-color: var(--light);
+  color: var(--dark);
+  border: 1px solid var(--dark);
+  border-radius: 999px;
+  padding: 0.5rem 1.25rem;
+  font-size: var(--small);
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.btn-2:hover,
+.btn-2:focus {
+  background-color: #e0e0e0;
+  transform: scale(1.02);
+}
+
+main {
+  padding-top: var(--navbar-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100svh;
+}
+
 body {
   font-family: 'Merriweather', serif;
   font-size: var(--text);
@@ -51,6 +119,13 @@ h4 {
   font-family: 'Merriweather', serif !important;
   font-weight: 700;
 }
+li,
+h5 {
+  font-size: var(--subheader2) !important;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 800 !important;
+  color: var(--blue)!important;
+}
 
 p,
 li {
@@ -65,9 +140,6 @@ button {
 }
 
 /* Bakgrunder */
-.bg-linear-1 {
-  background: linear-gradient(135deg, #fffffff0, #130101a5);
-}
 
 .bg-gradient-1 {
   background-size: 100% 100%;
