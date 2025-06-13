@@ -45,7 +45,7 @@ export default function Navbar() {
       <nav className='navbar navbar-expand-lg navbar-overlay'>
         <div className='container d-flex align-items-center justify-content-between'>
           <Link to='/'>
-            <img className='navbar-logo' src='/images/navbar-logo.png' alt='Håvard Logo' />
+            <img className='navbar-logo' src='{logo}' alt='Håvard Logo' />
           </Link>
 
           <div className='navbar-buttons d-flex gap-2'>
@@ -102,7 +102,7 @@ export default function Navbar() {
         <div className='d-flex flex-column h-100 p-2 container'>
           <div className='d-flex align-items-center justify-content-between'>
             <Link to='/' onClick={() => setMenuOpen(false)}>
-              <img className='navbar-logo' src='/images/navbar-logo.png' alt='Håvard Logo' />
+              <img className='navbar-logo' src='{logo}' alt='Håvard Logo' />
             </Link>
             <button className='btn-1' onClick={() => setMenuOpen(false)}>
               <i className='bi bi-chevron-left'></i> Tillbaka
