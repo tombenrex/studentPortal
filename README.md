@@ -1,12 +1,98 @@
-# React + Vite
+<p align="center">
+  <img src="src/assets/navbar-logo.png" alt="Håvard Logo" height="120" />
+</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h1 align="center">🎓 Håvard StudentPortal</h1>
 
-Currently, two official plugins are available:
+<p align="center">
+  En responsiv webbapplikation för kursregistrering och nyhetsvisning.<br>
+  <strong>Byggd med React, anpassad design och modern utvecklingsstack.</strong>
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<p align="center">
+  <a href="https://github.com/tombenrex/studentPortal"><img src="https://img.shields.io/github/stars/tombenrex/studentPortal?style=social" alt="GitHub stars"></a>
+  <a href="https://github.com/tombenrex/studentPortal"><img src="https://img.shields.io/github/license/tombenrex/studentPortal" alt="MIT License"></a>
+  <a href="#"><img src="https://img.shields.io/badge/status-in%20progress-yellow" alt="Status"></a>
+</p>
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Funktioner
+
+- 📚 Kurslista med sökfunktion
+- 📝 Detaljerad kursvy med förkunskapskrav, poäng och beskrivning
+- 📄 Registreringsformulär med validering, bekräftelse och localStorage
+- 🗞️ Nyhetssida med API-integration (planerat)
+- 🌐 Responsiv design (mobile-first)
+- 🎨 Egen design med CSS-variabler, gradients, animationer
+- 🧭 Navigering med React Router
+- 💾 Lagring av anmälningar i localStorage
+
+## 🎥 Demo
+
+> 💡 Kommer snart! Lägg till en GIF eller länk till en skärminspelningsvideo (t.ex. via Loom eller YouTube).
+
+---
+
+## 🛠️ Tekniker
+
+- ⚛️ React (med `useState`, `useEffect`, `react-router-dom`)
+- 💅 CSS med `:root`, `clamp()` och anpassade variabler
+- 🧪 Validering med Yup + react-hook-form (om implementerat)
+- 📦 Bootstrap (delvis)
+- 🌈 UI-komponenter: Material UI (valfritt, för knappar mm)
+
+## 📁 Projektstruktur
+
+```bash
+.
+├── public/
+│   └── images/             # Bakgrundsbilder, logotyper
+├── src/
+│   ├── components/         # Navbar, knappar, dropdowns
+│   ├── pages/              # Home, Courses, CourseDetails, Register, News
+│   ├── data/               # courses.js
+│   ├── App.jsx             # App-router & layout
+│   ├── App.css             # Globala layoutstilar
+│   ├── index.css           # Variabler, typografi, reset
+│   └── main.jsx            # Root render
+```
+
+## 🧑‍💻 Installation & körning
+
+1. **Klona projektet:**
+
+```bash
+git clone https://github.com/tombenrex/studentPortal.git
+cd studentPortal
+```
+
+2. **Installera beroenden:**
+
+```bash
+npm install
+```
+
+3. **Starta utvecklingsserver:**
+
+```bash
+npm run dev
+```
+
+4. **Besök i webbläsare:**
+
+```bash
+http://localhost:5173/studentPortal/
+```
+
+> Bas-URL är inställd via `BrowserRouter basename='/studentPortal/'`.
+
+## 🌟 Att göra / kommande funktioner
+
+- [ ] API-integration för nyheter
+- [ ] E-postbekräftelse vid registrering
+- [ ] Adminvy för att hantera kurser
+- [ ] Mörkt tema
+- [ ] Testning med Vitest eller Jest
+
+##
