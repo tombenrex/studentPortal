@@ -5,10 +5,13 @@ import courses from '../data/courses'
 
 export default function RegisterForm() {
   const location = useLocation()
+  const redirectToCourses = () => {
+    window.location.href = `${import.meta.env.BASE_URL}`
+  }
 
   const queryParams = new URLSearchParams(location.search)
   const initialCourseId = queryParams.get('courseId') || ''
-
+  const [countdown, setCountdown] = useState(6)
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -53,9 +56,15 @@ export default function RegisterForm() {
 
     setSubmitted(true)
     setError('')
-    setTimeout(() => {
-      window.location.href = '/courses'
-    }, 6000)
+    let seconds = 6
+    const interval = setInterval(() => {
+      seconds--
+      setCountdown(seconds)
+      if (seconds === 0) {
+        clearInterval(interval)
+        redirectToCourses()
+      }
+    }, 1000)
   }
 
   return (
@@ -67,8 +76,10 @@ export default function RegisterForm() {
       {submitted ? (
         <Alert severity='success'>
           Tack {form.name}! Du har registrerat dig till "
-          {courses.find(c => c.id === parseInt(form.courseId))?.title}". Du skickas strax tillbaka
-          till startsidan...
+          {courses.find(c => c.id === parseInt(form.courseId))?.title}".
+          <br />
+          <br />
+          Du skickas strax tillbaka till startsidan om ({countdown} sekunder)...
         </Alert>
       ) : (
         <form onSubmit={handleSubmit}>
